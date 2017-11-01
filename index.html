@@ -3,9 +3,10 @@
 <script>
 function showDef(){
     var xmlHttp = new XMLHttpRequest();
-    var url = "request.php";
+    var url = "request.php?q=&all=true";
     var word = document.getElementById("word").value;
     xmlHttp.open("GET", url, true);
+    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xmlHttp.onreadystatechange = function() {
         if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
             var definition = xmlHttp.responseText;

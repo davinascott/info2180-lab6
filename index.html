@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+function showDef(){
+    var xmlHttp = new XMLHttpRequest();
+    var url = "request.php";
+    var word = document.getElementById("word").value;
+    hr.open("GET", url, true);
+    hr.onreadystatechange = function() {
+        if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            var definition = xmlHttp.responseText;
+            window.alert(definition);
+            
+        }
+    }
+    xmlHttp.send(word); 
+    document.getElementById("definition").innerHTML = "searching...";
+}
+</script>
+</head>
+<body>
+    <h1>Web Dictionary</h1>
+    <h2>Type a word to find its meaning</h2>
+    Word: <input id="word" name="Search Word" type="text">  <br><br>
+    <input name="Search" type="submit" value="Submit Data" onclick="showDef();"> <br><br>
+    <div id="definition"></div>
+</body>
+</html>

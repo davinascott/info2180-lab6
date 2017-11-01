@@ -5,8 +5,8 @@ function showDef(){
     var xmlHttp = new XMLHttpRequest();
     var url = "request.php";
     var word = document.getElementById("word").value;
-    hr.open("GET", url, true);
-    hr.onreadystatechange = function() {
+    xmlHttp.open("GET", url, true);
+    xmlHttp.onreadystatechange = function() {
         if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {
             var definition = xmlHttp.responseText;
             window.alert(definition);
